@@ -1,9 +1,13 @@
 import { FormProvider } from "@/context/FormContext";
-import ThemeRegistry from "@/components/ThemeRegistry";
+import { ResultProvider } from "@/context/ResultContext";
+import ThemeRegistry from "@/services/ThemeRegistry";
+
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <FormProvider>
-      <ThemeRegistry>{children}</ThemeRegistry>
+      <ResultProvider>
+        <ThemeRegistry>{children}</ThemeRegistry>
+      </ResultProvider>
     </FormProvider>
   );
 };
