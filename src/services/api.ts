@@ -1,22 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // lib/api.ts
 
-type FetchOptions = {
+interface FetchOptions {
   cache?: RequestCache;
   revalidate?: number;
   method?: string;
   body?: any;
   headers?: HeadersInit;
-};
+}
 
 export async function apiFetch<T>(
   path: string,
   options: FetchOptions = {}
 ): Promise<T> {
   const {
-    cache = 'no-store',
+    cache = "no-store",
     revalidate,
-    method = 'GET',
+    method = "GET",
     body,
     headers = {},
   } = options;
@@ -24,7 +24,7 @@ export async function apiFetch<T>(
   const fetchOptions: RequestInit = {
     method,
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       ...headers,
     },
     body: body ? JSON.stringify(body) : undefined,
@@ -32,7 +32,10 @@ export async function apiFetch<T>(
     next: revalidate ? { revalidate } : undefined,
   };
 
-  const response = await fetch( process.env.NEXT_PUBLIC_BASEURL + path, fetchOptions);
+  const response = await fetch(
+    process.env.NEXT_PUBLIC_BASEURL + path,
+    fetchOptions
+  );
 
   if (!response.ok) {
     throw new Error(`Erro ao buscar ${path}: ${response.statusText}`);

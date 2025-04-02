@@ -1,27 +1,17 @@
 "use client";
-/* eslint-disable no-unused-vars */
 import { createContext, useContext, ReactNode } from "react";
 import { useForm } from "@/hooks/useForm";
+import { Form } from "@/types/form";
 
-export type Form = {
-  marca: string;
-  modelo: string;
-  ano: string;
-};
-
-export type FormContextType = {
+interface FormContextType {
   form?: Form;
   setForm: React.Dispatch<React.SetStateAction<Form>>;
   onChange?: (value: string, key: keyof Form) => void;
-};
+}
 
 const FormContext = createContext<FormContextType>({} as FormContextType);
 
-type FormProviderProps = {
-  children: ReactNode;
-};
-
-export const FormProvider = ({ children }: FormProviderProps) => {
+export const FormProvider = ({ children }: { children: ReactNode }) => {
   const { form, onChange, setForm } = useForm({
     marca: "",
     modelo: "",

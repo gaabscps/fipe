@@ -1,12 +1,11 @@
 "use client";
 import { Result } from "@/types/result";
-/* eslint-disable no-unused-vars */
 import { createContext, useState, useContext, ReactNode } from "react";
 
-export type ResultContextType = {
+interface ResultContextType {
   result: Result;
   setResult: React.Dispatch<React.SetStateAction<Result>>;
-};
+}
 
 const ResultContext = createContext<ResultContextType>({} as ResultContextType);
 

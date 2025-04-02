@@ -1,13 +1,7 @@
-import { Form } from "@/components/Sections/Form";
+import { CardSection } from "@/components/Sections/Card";
 import { Result } from "@/components/Sections/Result";
-import {
-  CardContent,
-  Card,
-  Container,
-  Stack,
-  Typography,
-  Box,
-} from "@mui/material";
+import { Title } from "@/components/Sections/Title";
+import { Container, Stack, Box } from "@mui/material";
 
 function Home() {
   return (
@@ -23,18 +17,8 @@ function Home() {
     >
       <Container maxWidth="sm">
         <Stack alignItems="center" justifyContent="center" spacing={2}>
-          <Typography fontWeight="700" textAlign="center" variant="h4">
-            Tabela Fipe
-          </Typography>
-          <Typography fontWeight="700" textAlign="center" variant="h6">
-            Consulte o valor de um veículo de forma gratuita
-          </Typography>
-
-          <Card sx={{ width: "100%", padding: "16px 40px" }}>
-            <CardContent>
-              <Form />
-            </CardContent>
-          </Card>
+          <Title />
+          <CardSection />
         </Stack>
       </Container>
 
