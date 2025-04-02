@@ -1,3 +1,4 @@
+"use client";
 /* eslint-disable no-unused-vars */
 import { createContext, useState, useContext, ReactNode } from "react";
 
@@ -10,7 +11,7 @@ export type Form = {
 export type FormContextType = {
   form: Form;
   setForm: React.Dispatch<React.SetStateAction<Form>>;
-  handleChange: (value: string, key: keyof Form) => void;
+  handleChange?: (value: string, key: keyof Form) => void;
 };
 
 const FormContext = createContext<FormContextType>({} as FormContextType);
