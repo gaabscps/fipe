@@ -3,7 +3,7 @@ import { Result } from "@/components/Sections/Result";
 import { Title } from "@/components/Sections/Title";
 import { Container, Stack, Box } from "@mui/material";
 
-function Home() {
+export default async function Home() {
   return (
     <Box
       height="100%"
@@ -13,6 +13,7 @@ function Home() {
         flexDirection: "column",
         alignItems: "center",
         gap: "40px",
+        backgroundColor: "#f9f6fc",
       }}
     >
       <Container maxWidth="sm">
@@ -26,5 +27,3 @@ function Home() {
     </Box>
   );
 }
-
-export default Home;

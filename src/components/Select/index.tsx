@@ -11,14 +11,23 @@ import {
 interface CustomSelectProps extends Omit<SelectProps, "variant"> {
   label: string;
   options: { value: string; label: string }[];
+  disabled?: boolean;
+  hidden?: boolean;
 }
 
 export const CustomSelect = ({
   label,
   options,
+  disabled,
+  hidden,
   ...props
 }: CustomSelectProps) => (
-  <FormControl fullWidth>
+  <FormControl
+    sx={{
+      display: hidden ? "none" : "",
+    }}
+    fullWidth
+  >
     <InputLabel
       id={`${label}-label`}
       sx={{
@@ -33,6 +42,7 @@ export const CustomSelect = ({
       {label}
     </InputLabel>
     <Select
+      disabled={disabled}
       variant="outlined"
       labelId={`${label}-label`}
       id={`${label}-select`}
