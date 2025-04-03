@@ -10,12 +10,15 @@ export const Result = () => {
     <Container
       sx={{
         backgroundColor: "#DCF5F2",
-        display: isResultEmpty ? "none" : "flex",
         padding: "64px 16px 40px",
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "column",
+        display: "flex",
         gap: "16px",
+        transform: isResultEmpty ? "translateY(100%)" : "translateY(0)",
+        opacity: isResultEmpty ? 0 : 1,
+        transition: "all 0.3s ease-in-out",
       }}
     >
       {loading ? (
