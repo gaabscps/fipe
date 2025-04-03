@@ -28,7 +28,7 @@ export default function Exercicio4Page() {
   };
 
   return (
-    <Container maxWidth="sm" sx={{ py: 4 }}>
+    <Container maxWidth="sm" sx={{ py: "120px" }}>
       <Paper elevation={3} sx={{ p: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Exercício 4 - Verificador de Primeira Letra Maiúscula

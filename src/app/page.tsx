@@ -13,7 +13,6 @@ export default async function Home() {
         flexDirection: "column",
         alignItems: "center",
         gap: "40px",
-        backgroundColor: "#f9f6fc",
       }}
     >
       <Container maxWidth="sm">

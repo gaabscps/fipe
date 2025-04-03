@@ -16,7 +16,7 @@ export const Result = () => {
         flexDirection: "column",
         display: "flex",
         gap: "16px",
-        transform: isResultEmpty ? "translateY(100%)" : "translateY(0)",
+        transform: isResultEmpty ? "translateX(-100%)" : "translateX(0)",
         opacity: isResultEmpty ? 0 : 1,
         transition: "all 0.3s ease-in-out",
       }}

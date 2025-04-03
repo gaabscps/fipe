@@ -41,7 +41,7 @@ export default function Exercicio3Page() {
   }, []);
 
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
+    <Container maxWidth="md" sx={{ py: "120px" }}>
       <Paper elevation={3} sx={{ p: 4 }}>
         <Typography
           variant="h4"

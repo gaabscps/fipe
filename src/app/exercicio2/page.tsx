@@ -39,7 +39,7 @@ const UpdateData: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="sm" sx={{ py: 4 }}>
+    <Container maxWidth="sm" sx={{ py: "120px" }}>
       <Paper elevation={3} sx={{ p: 4 }}>
         <Typography variant="h4" component="h4" gutterBottom>
           Exercício 2 - Função UpdateData

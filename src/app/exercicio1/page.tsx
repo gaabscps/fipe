@@ -21,7 +21,7 @@ export default function Exercicio1Page() {
   };
 
   return (
-    <Container maxWidth="sm" sx={{ py: 4 }}>
+    <Container maxWidth="sm" sx={{ py: "120px" }}>
       <Paper elevation={3} sx={{ p: 4 }}>
         <Typography variant="h4" component="h4" gutterBottom>
           Exercício 1 - Máscara de Texto
