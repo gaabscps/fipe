@@ -1,22 +1,24 @@
 "use client";
 
-import {
-  Box,
-  Link,
-  Stack,
-  Typography,
-  useMediaQuery,
-  IconButton,
-} from "@mui/material";
+import { Box, Link, Stack, useMediaQuery, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 export const Header = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const menuRef = useRef<HTMLElement>(null);
+
+  useClickOutside(menuRef, () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  });
 
   const routes = [
     {
@@ -43,6 +45,7 @@ export const Header = () => {
 
   return (
     <Box
+      ref={menuRef}
       display="flex"
       justifyContent="space-between"
       alignItems="center"
@@ -75,23 +78,33 @@ export const Header = () => {
         flexDirection={isMobile ? "column" : "row"}
         display={isMobile && !isMenuOpen ? "none" : "flex"}
       >
-        <Typography variant="h6" fontWeight="bold">
-          Mobiauto
-        </Typography>
-        {routes.map((route) => (
-          <Link
-            key={route.href}
-            href={route.href}
-            noWrap
-            fontWeight="bold"
-            sx={{
-              textDecoration: "none",
-              color: pathname === route.href ? "#1976d2" : "inherit",
-            }}
-          >
-            {route.label}
-          </Link>
-        ))}
+        <Box position="relative" width="102px" height="14px">
+          <Image src="/logo.png" alt="logo" fill />
+        </Box>
+        <Box
+          paddingTop={isMobile ? "24px" : "0"}
+          display="flex"
+          flexDirection={isMobile ? "column" : "row"}
+          gap={3}
+          justifyContent="center"
+          alignItems="center"
+        >
+          {routes.map((route) => (
+            <Link
+              key={route.href}
+              href={route.href}
+              noWrap
+              fontWeight="bold"
+              sx={{
+                padding: "8px 16px",
+                textDecoration: "none",
+                color: pathname === route.href ? "#1976d2" : "inherit",
+              }}
+            >
+              {route.label}
+            </Link>
+          ))}
+        </Box>
       </Stack>
     </Box>
   );

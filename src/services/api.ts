@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// lib/api.ts
 import { Result } from "@/types/result";
 
 type FetchOptions = {
@@ -48,18 +47,24 @@ export async function apiFetch<T>(
     if (error instanceof Error) {
       throw new Error(`Erro na requisição: ${error.message}`);
     }
-    throw new Error('Erro desconhecido na requisição');
+    throw new Error("Erro desconhecido na requisição");
   }
 }
 
-export async function buscarPrecoFipe(marca: string, modelo: string, ano: string) {
+export async function buscarPrecoFipe(
+  marca: string,
+  modelo: string,
+  ano: string
+) {
   try {
-    const response = await apiFetch<Result>(`/api/fipe/${marca}/${modelo}/${ano}`);
+    const response = await apiFetch<Result>(
+      `/api/fipe/${marca}/${modelo}/${ano}`
+    );
     return response;
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(`Erro ao buscar preço da Fipe: ${error.message}`);
     }
-    throw new Error('Erro desconhecido ao buscar preço da Fipe');
+    throw new Error("Erro desconhecido ao buscar preço da Fipe");
   }
 }
