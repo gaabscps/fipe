@@ -37,6 +37,12 @@ export const CustomSelect = ({
           top: "10px",
           color: "#666",
         },
+        "&.Mui-focused": {
+          color: "#4BADA9",
+        },
+        "&.MuiInputLabel-shrink.Mui-focused": {
+          color: "#4BADA9",
+        },
       }}
     >
       {label}

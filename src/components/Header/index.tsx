@@ -98,7 +98,7 @@ export const Header = () => {
               sx={{
                 padding: "8px 16px",
                 textDecoration: "none",
-                color: pathname === route.href ? "#1976d2" : "inherit",
+                color: pathname === route.href ? "#4BADA9" : "inherit",
               }}
             >
               {route.label}
